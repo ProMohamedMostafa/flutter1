@@ -3,13 +3,10 @@ import 'package:student_list/screens/studentList.dart';
 import 'package:student_list/screens/student_details.dart';
 import 'dart:async';
 
-void main()  {
+void main() {
   //getFileContent();
   //print(await DownloadFile());
-  runApp(
-      MyApp()
-  );
-
+  runApp(MyApp());
 }
 
 void getFileContent() async {
@@ -32,7 +29,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     // TODO : implement build
     return MaterialApp(
-      title: "Student List",
+      title: "Student List__",
       debugShowCheckedModeBanner: false,
       theme: ThemeData(primarySwatch: Colors.cyan),
       home: StudentList(),
