@@ -39,7 +39,7 @@ class studentsState extends State<StudentList> {
           updatelistview();
         },
         tooltip: "Add New Student",
-        child: Icon(Icons.add_comment),
+        child: Icon(Icons.add),
       ),
     );
   }
@@ -65,6 +65,7 @@ class studentsState extends State<StudentList> {
                 ),
                 onTap: () {
                   _delete(context, studentList[position]);
+                  updatelistview();
                 },
               ),
               onTap: () {
