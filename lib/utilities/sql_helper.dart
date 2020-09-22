@@ -68,7 +68,8 @@ class SQL_Helper {
 
   Future<int> deleteStudent(int stID) async {
     Database db = await this.database;
-    var result = await db.rawDelete("Delete from $tableName where $id=$stID");
+    //var result = await db.rawDelete("Delete from $tableName where $id=$stID");
+    var result = await db.delete(tableName, where: "$id=?", whereArgs: [stID]);
     return result;
   }
 
@@ -78,5 +79,18 @@ class SQL_Helper {
         await db.rawQuery("select count(*) from $tableName");
     int result = Sqflite.firstIntValue(all);
     return result;
+  }
+
+  Future<List<student>> getStudentsList() async {
+    var studentsMapList = await getstudentMapList();
+    int count = studentsMapList.length;
+    if (count != 0) {
+      List<student> students = new List<student>();
+      for (int i = 0; i < count; i++) {
+        students.add(student.getMap(studentsMapList[i]));
+      }
+      return students;
+    }
+    return null;
   }
 }

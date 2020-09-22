@@ -1,12 +1,15 @@
-import 'dart:html';
-
 class student {
   int id;
   String name;
   String description;
   int pass;
   String date;
-  
+  student(String name, String des, int pass, String date) {
+    this.name = name;
+    this.description = des;
+    this.pass = pass;
+    this.date = date;
+  }
 
   Map<String, dynamic> toMap() {
     var map = Map<String, dynamic>();
